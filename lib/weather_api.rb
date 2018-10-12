@@ -7,7 +7,7 @@ class WeatherAPI
 
   Dotenv.load("../.env")
 
-  def self.current_weather
-    return CurrentWeatherService.new
+  def self.current_weather_single
+    return CurrentWeatherServiceSingle.new
   end
 end

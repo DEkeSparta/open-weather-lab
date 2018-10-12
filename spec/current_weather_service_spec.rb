@@ -1,13 +1,12 @@
 describe "CurrentWeatherService" do
 
   before :all do
-    @cur_weather = WeatherAPI.current_weather
+    @cur_weather = WeatherAPI.current_weather_single
   end
 
   context "by city name" do
     before :all do
       @test_weather = @cur_weather.get_city_weather_by_name "Birmingham"
-      p @test_weather
     end
 
     include_examples "single weather tests"

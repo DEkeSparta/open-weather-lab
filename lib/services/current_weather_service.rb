@@ -1,7 +1,7 @@
 require "httparty"
 require "json"
 
-class CurrentWeatherService
+class CurrentWeatherServiceSingle
   include HTTParty
   attr_accessor :city_weather
 
