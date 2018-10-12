@@ -7,6 +7,7 @@ describe "CurrentWeatherService" do
   context "by city name" do
     before :all do
       @test_weather = @cur_weather.get_city_weather_by_name "Birmingham"
+      p @test_weather
     end
 
     include_examples "single weather tests"
@@ -23,7 +24,6 @@ describe "CurrentWeatherService" do
   context "by coordinates" do
     before :all do
       @test_weather = @cur_weather.get_city_weather_by_lat_long -87, 33.5
-      puts @test_weather
     end
 
     include_examples "single weather tests"

@@ -4,10 +4,10 @@ RSpec.shared_examples "single weather tests" do
     expect(@test_weather).to be_a Hash
   end
 
-  it "should have coordinates with a lon and lat numbers" do
+  it "should have coordinates with correct lon and lat numbers" do
     expect(@cur_weather.get_value_of "coord").to be_a Hash
-    expect(@cur_weather.get_value_of("coord")["lon"]).to be_a Numeric
-    expect(@cur_weather.get_value_of("coord")["lat"]).to be_a Numeric
+    expect(@cur_weather.get_value_of("coord")["lon"]).to be_between -180, 180
+    expect(@cur_weather.get_value_of("coord")["lat"]).to be_between -90, 90
   end
 
   it "should have a weather array with an integer id and strings main, description, and icon" do
@@ -64,8 +64,8 @@ RSpec.shared_examples "single weather tests" do
     expect(@cur_weather.get_value_of "name").to be_a String
   end
 
-  it "should have a cod integer" do
-    expect(@cur_weather.get_value_of "cod").to be_a Integer
+  it "should have a successful request code of 200" do
+    expect(@cur_weather.get_value_of "cod").to eq 200
   end
 
 end
