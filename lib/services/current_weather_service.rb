@@ -22,6 +22,10 @@ class CurrentWeatherService
     @city_weather = JSON.parse self.class.get("/weather?lat=#{lat}&lon=#{long}&APPID=#{ENV["WEATHER_API_KEY"]}").body
   end
 
+  def get_city_weather_by_zip zip, country
+    @city_weather = JSON.parse self.class.get("/weather?zip=#{zip},#{country}&APPID=#{ENV["WEATHER_API_KEY"]}").body
+  end
+
   def get_value_of key
     return @city_weather[key]
   end

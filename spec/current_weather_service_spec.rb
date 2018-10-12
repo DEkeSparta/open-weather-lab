@@ -29,4 +29,12 @@ describe "CurrentWeatherService" do
     include_examples "single weather tests"
   end
 
+  context "by zip" do
+    before :all do
+      @test_weather = @cur_weather.get_city_weather_by_zip 94040,"us"
+    end
+
+    include_examples "single weather tests"
+  end
+
 end
