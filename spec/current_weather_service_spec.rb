@@ -1,4 +1,4 @@
-describe "CurrentWeatherService" do
+describe CurrentWeatherServiceSingle do
 
   before :all do
     @cur_weather = WeatherAPI.current_weather_single
